@@ -178,6 +178,17 @@ namespace oda2
             //return db.insertODAError(errDesc, errURL, errData, langDesc, modDesc).toJSON();
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string GetReveryTest(string dbName, Int64 sessionId, string testletNames)
+        {
+            RecoveryTestSetMaker rtsm = new RecoveryTestSetMaker(dbName, sessionId, testletNames);
+            //return  String.Join(",", tsm.testData().ToArray());
+            return rtsm.getTest();
+            //DB db = new DB(dbName);
+            //return db.insertODAError(errDesc, errURL, errData, langDesc, modDesc).toJSON();
+        }
+
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

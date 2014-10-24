@@ -75,8 +75,8 @@
     <Content Include="App_Code\TestGroupData.cs" />
     <Content Include="App_Code\TestletData.cs" />
     <Content Include="App_Code\TestletItemData.cs" />
-    <Content Include="App_Code\TestSetMaker.cs" />
     <Content Include="App_Code\TopicClass.cs" />
+    <Content Include="App_Code\TestSetMaker.cs" />
     <Compile Include="App_Data\CategoryClass.cs" />
     <Compile Include="App_Data\CommonClass.cs" />
     <Compile Include="App_Data\DB.cs" />
@@ -97,6 +97,7 @@
     <Compile Include="App_Data\TestletItemData.cs" />
     <Compile Include="App_Data\TestSetMaker.cs" />
     <Compile Include="App_Data\TopicClass.cs" />
+    <Compile Include="App_Code\RecoveryTestSetMaker.cs" />
     <Compile Include="Service.asmx.cs">
       <DependentUpon>Service.asmx</DependentUpon>
       <SubType>Component</SubType>

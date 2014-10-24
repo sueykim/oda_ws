@@ -134,11 +134,11 @@ namespace oda2
               sbOUT.AppendFormat("<form id=\"id_L{0}_0\">", ky);
               sbOUT.Append(CommonClass.getIntroScreen(_dbName.Split('_')[2]));
               List<TestletData> tdl = (List<TestletData>)testList3[ky];
-              testletNamesForRecovery += ky + ": ";
+              testletNamesForRecovery += ky + ":";
               int y = 0;
               for (; y < 3; y++)
               {
-                  testletNamesForRecovery += tdl[y].name + ", ";
+                  testletNamesForRecovery += tdl[y].name + ",";
                   if (tdl[y].name.IndexOf(tlt2Nameabb) > -1)
                       sbOUT.Append(tdl[y].getItems(_dbName)); 
                   else
@@ -151,7 +151,7 @@ namespace oda2
               sbOUT.Append(CommonClass.getIntroScreen(_dbName.Split('_')[2]));
               for (; y < tdl.Count; y++)
               {
-                  string tlname_end = y == tdl.Count - 1 ? "||" : ",";
+                  string tlname_end = y == tdl.Count - 1 ? "|" : ",";
                   testletNamesForRecovery += tdl[y].name + tlname_end;
                   if (tdl[y].name.IndexOf(tlt2Nameabb) > -1)
                       sbOUT.Append(tdl[y].getItems(_dbName));
