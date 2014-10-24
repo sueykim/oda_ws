@@ -172,10 +172,7 @@ namespace oda2
         public string GetTest(string dbName, Int64 sessionId)
         {
             TestSetMaker tsm = new TestSetMaker(dbName, sessionId);
-            //return  String.Join(",", tsm.testData().ToArray());
             return tsm.getTest();
-            //DB db = new DB(dbName);
-            //return db.insertODAError(errDesc, errURL, errData, langDesc, modDesc).toJSON();
         }
 
         [WebMethod]
@@ -183,10 +180,7 @@ namespace oda2
         public string GetReveryTest(string dbName, Int64 sessionId, string testletNames)
         {
             RecoveryTestSetMaker rtsm = new RecoveryTestSetMaker(dbName, sessionId, testletNames);
-            //return  String.Join(",", tsm.testData().ToArray());
             return rtsm.getTest();
-            //DB db = new DB(dbName);
-            //return db.insertODAError(errDesc, errURL, errData, langDesc, modDesc).toJSON();
         }
 
 
