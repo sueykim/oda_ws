@@ -28,7 +28,7 @@ namespace oda2
             _sessionId = sessionId;
             _testletNames = testletNames;
             start_test();
-            insertTestRecoveryItem();
+//            insertTestRecoveryItem();
         }
 
 
