@@ -236,6 +236,14 @@ namespace oda2
             return db.getTestRecoveryItemData(trOUId).toJSON();
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //gets all profiles from ALL DATABASES
+        public string GetDummyData()
+        {
+            return "i am so dumb dumb dubm";
+        }
+
 
 
     }
