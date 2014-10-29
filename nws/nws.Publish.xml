@@ -2,8 +2,8 @@
 <publishData>
   <publishProfile publishUrl="C:\Users\youngsook.kim\Documents\Visual Studio 2010\Projects\nws\nws\PrecompiledWeb" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="Service.asmx" publishTime="10/23/2014 10:25:51" />
-    <file relUrl="bin/nws.pdb" publishTime="10/29/2014 08:15:07" />
-    <file relUrl="bin/nws.dll" publishTime="10/29/2014 08:15:07" />
+    <file relUrl="bin/nws.pdb" publishTime="10/29/2014 08:56:26" />
+    <file relUrl="bin/nws.dll" publishTime="10/29/2014 08:56:27" />
     <file relUrl="Web.config" publishTime="10/29/2014 08:15:34" />
   </publishProfile>
 </publishData>

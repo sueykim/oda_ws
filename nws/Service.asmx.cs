@@ -140,25 +140,24 @@ namespace oda2
 
         }
 
-        /*      [WebMethod]
-              [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-             //gets all profiles from ALL DATABASES
-                    public string GetProfilesByUserId(int userId)
-                    {
-                      List<ProfileData> globalList = new List<ProfileData>();
-                      DB db;
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //gets all profiles from ALL DATABASES
+        public string GetProfilesByUserId(int userId)
+        {
+            List<ProfileData> globalList = new List<ProfileData>();
+            DB db;
 
-                      foreach (var lng in langs)
-                      {
-                        db = new DB(hostname+"_"+lng+"_rc");
-                        globalList.AddRange(db.getProfilesByUserId(userId));
-                        db = new DB(hostname + "_" + lng + "_lc");
-                        globalList.AddRange(db.getProfilesByUserId(userId));
-                      }
+            foreach (var lng in langs)
+            {
+                db = new DB(hostname + "_" + lng + "_rc");
+                globalList.AddRange(db.getProfilesByUserId(userId));
+                db = new DB(hostname + "_" + lng + "_lc");
+                globalList.AddRange(db.getProfilesByUserId(userId));
+            }
 
-                      return globalList.toJSON();
-                    }
-              */
+            return globalList.toJSON();
+        }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string InsertODAError(string dbName, string errDesc, string errURL, string errData, string langDesc, string modDesc)
