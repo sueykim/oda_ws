@@ -10,11 +10,10 @@ namespace oda2
     public class RecoveryTestSetMaker
     {
         private String _dbName;
-        private List<String> tltNames;
         private Hashtable testList = new Hashtable();
         private Int64 _sessionId;
         private string _testletNames;
-
+         
 
         private StringBuilder sbOUT = new StringBuilder();
 
@@ -39,10 +38,10 @@ namespace oda2
 
             char[] delimiterChar0 = { '|' };//, ':', ','
             //string[] delimiterChars = new string[] { "|" };//, ':', ','
-
-            string xxx = (string)_testletNames;
+            
+            string xxx =  (string)_testletNames;
             string[] tllvlNnameAry = xxx.Split(delimiterChar0);
-            for (var i = 0; i < tllvlNnameAry.Length - 1; i++)
+            for (var i = 0; i < tllvlNnameAry.Length-1; i++)
             {
                 string curString = tllvlNnameAry[i];
                 char[] delimiterChar1 = { ':' };
@@ -57,17 +56,17 @@ namespace oda2
                     testList.Add(curlvl, new List<TestletData>());
                 }
                 List<TestletData> tl = (List<TestletData>)testList[curlvl];
-                for (var j = 0; j < curTestletNMsAry.Length; j++)
+                for (var j =0; j < curTestletNMsAry.Length; j++)
                 {
-                    string nn = (string)curTestletNMsAry[j];
+                    string nn = (string) curTestletNMsAry[j];
                     TestletData tmp1 = new TestletData(nn);
                     tl.Add(tmp1);
                 }
             }
-
+           
         }
 
-
+        
         private void start_test()
         {
 
@@ -76,17 +75,17 @@ namespace oda2
             //=> debug testing getitems
             IEnumerable<string> kys = testList.Keys.Cast<string>().OrderBy(k => k).Select(k => k);
 
-
+            
 
             //StringBuilder sb = new StringBuilder();
             sbOUT.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
             sbOUT.AppendLine("<root>");
-            sbOUT.AppendLine("<![CDATA[");
+            sbOUT.AppendLine("<![CDATA[");            
             foreach (string ky in kys)
             {
                 sbOUT.AppendFormat("<form id=\"id_L{0}_0\">", ky);
                 sbOUT.Append(CommonClass.getIntroScreen(_dbName.Split('_')[2]));
-                List<TestletData> tdl = (List<TestletData>)testList[ky];
+                List<TestletData> tdl = (List<TestletData>)testList[ky];               
                 int y = 0;
                 for (; y < 3; y++)
                 {
@@ -100,7 +99,7 @@ namespace oda2
                 sbOUT.Append(CommonClass.getIntroScreen(_dbName.Split('_')[2]));
                 for (; y < tdl.Count; y++)
                 {
-                    //  testletNamesForRecovery += tdl[y].name + tlname_end;
+                  //  testletNamesForRecovery += tdl[y].name + tlname_end;
                     sbOUT.Append(tdl[y].getItems(_dbName));
                 }
                 sbOUT.AppendLine("</form>");
@@ -113,8 +112,8 @@ namespace oda2
             //output += sbOUT.ToString();
         }
 
-
-
+       
+ 
         private List<SessionDataForRecovery> getSessionDataBySid()
         {
             DB db = new DB(_dbName);
@@ -136,13 +135,13 @@ namespace oda2
             db.insertTestRecoveryItem(OUId, langId, modId, _sessionId, startTime, testletNames, lastSubmittedSet);
 
         }
-
-
-
+       
+      
+     
 
         public string getTest()
         {
-
+            
 
             List<SessionDataForRecovery> _sessiondataRT = getSessionDataBySid();
 

@@ -671,6 +671,42 @@ namespace oda2
     }
       //sp_ws_insert_test_recovery_item
 
+    //sp_ws_get_test_recovery_item
+    public List<RecoveryTestItemData>getTestRecoveryItemData(int ouId)
+    {
+        List<RecoveryTestItemData> rtItemList = new List<RecoveryTestItemData>();
+        object[] arg = new Object[1] { ouId };
+        StoredProcedureGrab storedprocedure = new StoredProcedureGrab(serverName, dbName, userName, passWord, "sp_ws_get_test_recovery_item", arg);
+        spData = storedprocedure.GetReader();
+
+        if (!spData.getErrorStatus())
+        {
+            foreach (DataRow row in spData.getDataTable().Rows)
+            {
+
+                var temprtItem = new RecoveryTestItemData();
+                temprtItem.setRecoveryTestItemData(
+                    (Int64)row[0],
+                    (int)row[1],
+                    (int)row[2],
+                    (int)row[3],
+                    (Int64)row[4],                    
+                    String.Format("{0:M/d/yyyy HH:mm:ss}", row[5]),
+                    (string)row[6],
+                    (string)row[7]);
+
+
+                rtItemList.Add(temprtItem);
+            }
+        }
+        else
+        {
+            var temprtItem = new RecoveryTestItemData();
+            temprtItem.setErrorData(spData.getErrorDetails());
+            rtItemList.Add(temprtItem);
+        }
+        return rtItemList;
+    } //sp_ws_get_test_recovery_item
 
 
     

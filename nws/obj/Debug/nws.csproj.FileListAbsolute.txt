@@ -1,5 +1,4 @@
-c:\users\youngsook.kim\documents\visual studio 2010\Projects\nws\nws\bin\nws.dll
-c:\users\youngsook.kim\documents\visual studio 2010\Projects\nws\nws\bin\nws.pdb
-c:\users\youngsook.kim\documents\visual studio 2010\Projects\nws\nws\obj\Debug\nws.dll
-c:\users\youngsook.kim\documents\visual studio 2010\Projects\nws\nws\obj\Debug\nws.pdb
-C:\Users\youngsook.kim\Documents\Visual Studio 2010\Projects\nws\nws\obj\Debug\nws.csprojResolveAssemblyReference.cache
+C:\Users\youngsook.kim\Documents\Visual Studio 2010\Projects\nws\nws\bin\nws.dll
+C:\Users\youngsook.kim\Documents\Visual Studio 2010\Projects\nws\nws\bin\nws.pdb
+C:\Users\youngsook.kim\Documents\Visual Studio 2010\Projects\nws\nws\obj\Debug\nws.dll
+C:\Users\youngsook.kim\Documents\Visual Studio 2010\Projects\nws\nws\obj\Debug\nws.pdb

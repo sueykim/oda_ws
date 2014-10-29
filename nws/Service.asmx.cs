@@ -53,7 +53,7 @@ namespace oda2
             }
 
 
-            //sdList = db.getSessionsDataByDate(thisyear, thismonth, thisday); <this is a fake change.>
+            //sdList = db.getSessionsDataByDate(thisyear, thismonth, thisday);
 
             return sdList.toJSON();
         }
@@ -139,26 +139,26 @@ namespace oda2
             return db.getProfileDataById(profileId).toJSON();
 
         }
-/*
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-              //gets all profiles from ALL DATABASES
-              public string GetProfilesByUserId(int userId)
-              {
-                List<ProfileData> globalList = new List<ProfileData>();
-                DB db;
 
-                foreach (var lng in langs)
-                {
-                  db = new DB(hostname+"_"+lng+"_rc");
-                  globalList.AddRange(db.getProfilesByUserId(userId));
-                  db = new DB(hostname + "_" + lng + "_lc");
-                  globalList.AddRange(db.getProfilesByUserId(userId));
-                }
+        /*      [WebMethod]
+              [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+             //gets all profiles from ALL DATABASES
+                    public string GetProfilesByUserId(int userId)
+                    {
+                      List<ProfileData> globalList = new List<ProfileData>();
+                      DB db;
 
-                return globalList.toJSON();
-              }
-        */
+                      foreach (var lng in langs)
+                      {
+                        db = new DB(hostname+"_"+lng+"_rc");
+                        globalList.AddRange(db.getProfilesByUserId(userId));
+                        db = new DB(hostname + "_" + lng + "_lc");
+                        globalList.AddRange(db.getProfilesByUserId(userId));
+                      }
+
+                      return globalList.toJSON();
+                    }
+              */
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string InsertODAError(string dbName, string errDesc, string errURL, string errData, string langDesc, string modDesc)
@@ -172,17 +172,19 @@ namespace oda2
         public string GetTest(string dbName, Int64 sessionId)
         {
             TestSetMaker tsm = new TestSetMaker(dbName, sessionId);
+            //return  String.Join(",", tsm.testData().ToArray());
             return tsm.getTest();
+            //DB db = new DB(dbName);
+            //return db.insertODAError(errDesc, errURL, errData, langDesc, modDesc).toJSON();
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string GetReveryTest(string dbName, Int64 sessionId, string testletNames)
+        public string GetRecoveryTest(string dbName, Int64 sessionId, string testletnames)
         {
-            RecoveryTestSetMaker rtsm = new RecoveryTestSetMaker(dbName, sessionId, testletNames);
+            RecoveryTestSetMaker rtsm = new RecoveryTestSetMaker(dbName, sessionId, testletnames);
             return rtsm.getTest();
         }
-
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -210,7 +212,7 @@ namespace oda2
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        //gets all profiles from ALL DATABASES
+        //get all the Survey items from date1 to date2
         public string GetAllSurveyItems(string osvDate1, string osvDate2)
         {
             DB db = new DB("oda_master");
@@ -225,6 +227,16 @@ namespace oda2
             DB db = new DB("oda_master");
             return db.insertTestRecoveryItem(OUId, langId, modId, sessionId, startTime, testletNames, lastSubmittedSet).toJSON();
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //gets all profiles from ALL DATABASES
+        public string GetTestRecoveryItemData(int trOUId)
+        {
+            DB db = new DB("oda_master");
+            return db.getTestRecoveryItemData(trOUId).toJSON();
+        }
+
 
 
     }
