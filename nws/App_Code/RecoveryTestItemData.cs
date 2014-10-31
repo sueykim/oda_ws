@@ -42,6 +42,7 @@ namespace oda2
         TROUId = TROUIdIn;
         TRLNGId = TRLNGIdIn;
         TRMODId = TRMODIdIn;
+        TRSId = TRSIdIn;
         TRstartTimeString = TRstartTimeStringIn;
         TRtestletNames = TRtestletNamesIn;
         TRlastSubmittedSet = TRlastSubmittedSetIn;

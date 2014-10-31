@@ -229,7 +229,7 @@ namespace oda2
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        //gets all profiles from ALL DATABASES
+        //gets testRecovery item from oda_master by OUId
         public string GetTestRecoveryItemData(int trOUId)
         {
             DB db = new DB("oda_master");
