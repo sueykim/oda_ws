@@ -708,7 +708,24 @@ namespace oda2
         return rtItemList;
     } //sp_ws_get_test_recovery_item
 
+    public GenericData deleteTestRecoveryItemByTRid(Int64 TRid)
+    {
+        GenericData gd = new GenericData();
+        Object[] arg = new Object[1] { TRid };
+        StoredProcedureGrab storedprocedure = new StoredProcedureGrab(serverName, dbName, userName, passWord, "sp_ws_delete_test_recovery_item_by_TRid", arg);
+        spData = storedprocedure.GetReader();
 
+        if (!spData.getErrorStatus())
+        {
+            gd.setGenericData(spData.getTheOnlyValue());
+        }
+        else
+        {
+            gd.setGenericData(spData.getErrorDetails());
+        }
+
+        return gd;
+    }  
     
   }
 }

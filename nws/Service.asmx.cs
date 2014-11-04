@@ -236,6 +236,13 @@ namespace oda2
             return db.getTestRecoveryItemData(trOUId).toJSON();
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string DeleteTestRecoveryItemByTRid(Int64 TRid)
+        {
+            DB db = new DB("oda_master");
+            return db.deleteTestRecoveryItemByTRid(TRid).toJSON();
+        }
 
 
     }
